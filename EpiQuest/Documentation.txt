@@ -1,0 +1,288 @@
+Character :
+
+    Constructor:
+        The constructor is crucial as it initializes the fundamental properties of the Character object. It handles the initialization of texture frames, skin texture, damage, health, etc.
+
+    Getters and Setters (Methods for accessing and modifying coordinates, skin texture, damage, and health):
+        These methods are important as they allow access to and modification of essential properties of the Character object, such as coordinates, skin texture, damage, and health.
+
+    Abstract methods for movement:
+        These methods define the character's movement behavior in different directions. They are essential as movement is a key functionality for a game character.
+
+    Receive Damage:
+        Although this method is currently empty, it is important as it indicates the intention to handle damage that the character might receive. This method could be extended in subclasses to specifically handle damage processing.
+
+    Getter method for the current frame:
+        This method is important as it provides the current frame of the character's texture. It is crucial for animation and displaying the character correctly on the screen.
+
+    Getter methods for width, height, and hitbox:
+        These methods are important as they provide information about the size of the character, which can be crucial for graphical rendering and collision management in the game.
+
+Player :
+
+    Constructor:
+        Initializes the player object with specific attributes, such as skin texture, damage, and health. Also sets initial values for width, height, position, and animation frames.
+
+    Render method:
+        Handles the rendering of the player, including animations, attack effects, and displaying "OUCH!" text if the player is hit. Manages color changes during an attack and resets the color afterward.
+
+    Update method:
+        Updates the state of the player based on elapsed time. Manages timers for collision and red tint duration after taking damage.
+
+    Initialization of animation frames (initFrames method):
+        Splits the player's skin texture into animation frames for different directions (up, down, left, right) and initializes animation objects.
+
+    Attack method:
+        Executes a player attack, determining the attack position based on the player's direction and checking for collisions with monsters. Deals damage to monsters within the attack range.
+
+    Check if colliding with monster (isCollidingWithMonster method):
+        Checks if the player is currently colliding with a monster, considering both collision time and collision status.
+
+    Set colliding with monster (setCollidingWithMonster method):
+        Sets the colliding status with a monster and updates the collision timer.
+
+    Receive damage method:
+        Handles the player taking damage. If shielded, disables the shield; otherwise, reduces health. Updates player status and triggers invulnerability and red tint timers.
+
+    Heal method:
+        Allows the player to heal by a specified amount, updating health. Provides messages about life points gained or reaching maximum health.
+
+    Set shielded status (setShielded method):
+        Sets the shielded status of the player, controlling whether damage is mitigated.
+
+    Get shielded status (isShielded method):
+        Retrieves the current shielded status of the player.
+
+    Dispose method:
+        Disposes of resources, such as the font used for rendering.
+
+    Move up, down, left, and right methods:
+        Overrides abstract methods from the Character class to define player movement behavior in different directions. Updates animation frames and position accordingly.
+
+Monster :
+
+    Constructor:
+        Initializes a Monster object with specific attributes such as animation frames, skin texture, damage, and health. Also sets initial values for width, height, position, and random movement direction.
+
+    isAlive Getter:
+        Retrieves the current status of the monster's life (alive or not).
+
+    getHitbox Overridden Method:
+        Overrides the method from the Character class to provide the hitbox of the monster.
+
+    moveLeft, moveRight, moveUp, moveDown Overridden Methods:
+        Overrides the abstract methods from the Character class to define monster movement behavior in different directions. Updates animation frames and position accordingly.
+
+    updateFrame Helper Method:
+        Updates the current animation frame based on the provided animation.
+
+    changerDirectionAleatoire Helper Method:
+        Changes the random movement direction of the monster.
+
+    getDroppedItems Getter:
+        Retrieves the list of items dropped by the monster.
+
+    initFrames Method:
+        Initializes animation frames for different directions based on the skin texture.
+
+    update Method:
+        Updates the state of the monster, including random movement, collision detection with the player, and handling damage inflicted on the player. Also manages the monster's position and life status.
+
+    move Additional Method:
+        Moves the monster based on specified delta values, providing more controlled movement.
+
+    updateDisplayDamageTimer Method:
+        Updates the display damage timer used to show damage received.
+
+    receiveDamage Overridden Method:
+        Handles the monster receiving damage, updating health and displaying messages. Marks the monster as dead if health reaches zero.
+
+    getDisplayDamageTimer Getter:
+        Retrieves the remaining time for displaying damage.
+
+    getDirectionX and getDirectionY Getters:
+        Retrieve the current movement direction of the monster along the X and Y axes.
+
+    setDirectionX and setDirectionY Setters:
+        Set the movement direction of the monster along the X and Y axes.
+
+Alien :
+
+    Constructor:
+        Initializes an Alien object, extending the Monster class.
+        It sets the initial position of the alien and provides specific parameters such as animation frames, skin texture (alien image), damage, and health.
+
+Ogre :
+
+    Constructor:
+        Initializes an Ogre object, extending the Monster class.
+        It sets the initial position of the ogre and provides specific parameters such as animation frames, skin texture (ogre image), damage, and health.
+
+Pig :
+
+    Constructor:
+        Initializes an Pig object, extending the Monster class.
+        It sets the initial position of the pig and provides specific parameters such as animation frames, skin texture (pig image), damage, and health.
+
+Zombie :
+
+    Constructor:
+        Initializes an Zombie object, extending the Monster class.
+        It sets the initial position of the zombie and provides specific parameters such as animation frames, skin texture (zombie image), damage, and health.
+
+Rock :
+
+    Constructor:
+        Initializes an Rock object, extending the Monster class.
+        It sets the initial position of the rock and provides specific parameters such as animation frames, skin texture (rock image), damage, and health.
+
+Item :
+
+    Constructor:
+        Initializes an Item object with a given texture, x and y coordinates. It also sets up the initial hitbox, width, height, and other properties.
+
+    Render Method:
+        Draws the item using a SpriteBatch. It considers the item's texture, position, width, height, and scale for rendering.
+
+    Update Method:
+        Handles the item's behavior over time. This method is a placeholder, and specific item behaviors would be implemented here, such as movement, rotation, or any other dynamic properties.
+
+    Set Scale Method:
+        Sets the scale of the item. This can be used to resize the item during certain interactions or animations.
+
+    Get Hitbox Method:
+        Retrieves the hitbox (rectangle representing the collision area) of the item.
+
+    Set Position Method:
+        Sets the position of the item, updating both x, y coordinates, and the hitbox accordingly.
+
+    Set to Remove Method:
+        Marks the item for removal. This could be useful for managing the lifecycle of items, especially when they are collected or expire.
+
+    Set Touched Method:
+        Sets whether the item has been touched. This could be used to trigger specific interactions or animations when the item is touched.
+
+    Update Size Method:
+        Updates the size of the item, considering whether it has been touched. This is relevant for dynamic sizing based on interactions.
+
+    Draw Shield Active Method:
+        Placeholder method for drawing an active shield. This method does not contain specific implementation details.
+
+    Apply Shield Method:
+        Placeholder method for applying a shield to the player. Specific shield application logic would be implemented here.
+
+Shield :
+
+    Constructor:
+        Initializes a Shield object with a given texture, x and y coordinates. It also initializes properties such as elapsedDuration, a BitmapFont for rendering text, and a HeartRenderer instance.
+
+    Render Method:
+        Draws the shield texture at the specified position using a SpriteBatch.
+
+    Apply Shield Method (Override):
+        Overrides the applyShield method from the Item class. Sets the position of the shield and activates the shield effect for the player. Prints a message indicating that the player has gained a shield.
+
+HeartRenderer :
+
+       Constructor:
+           Initializes a HeartRenderer object with a given x and y position and a reference to a Character object. Also loads the heart texture from the file "heart.png".
+
+       Draw Method:
+           Draws heart icons on the screen based on the character's health. It calculates the position of each heart icon and draws it using a SpriteBatch. The heart icons are drawn in a row with a small gap between them.
+
+       Get Heart Region Method:
+           Retrieves the appropriate texture region for a heart icon based on the index and the character's health. It calculates the region based on the texture atlas containing heart images. If the index is beyond the character's health, a zero-size region is returned.
+
+       Get Heart Y Method:
+           Returns the y-coordinate of the heart icons.
+
+       Dispose Method:
+           Disposes of the heart texture to free up resources when it's no longer needed.
+
+Menu :
+
+    Create Method:
+        Initializes the Menu by creating a SpriteBatch, a Stage, and setting the input processor to the stage.
+        Creates a Skin and a BitmapFont for styling buttons.
+        Defines a TextButtonStyle for the buttons and creates "Play" and "Exit" buttons with specified padding and positions.
+        Sets up a Table layout to organize the buttons in the stage.
+        Adds click listeners to the "Exit" button to exit the application when clicked.
+
+    Render Method:
+        Clears the screen and renders the stage. It's responsible for handling the drawing and updating of the stage.
+
+    isPlayButtonClicked Method:
+        Checks if the "Play" button is pressed. Returns true if the button is pressed and false otherwise. This method can be used to determine if the "Play" button is clicked.
+
+    Dispose Method:
+        Disposes of resources used by the menu, including the stage, skin, batch, and font. It's called to free up resources when the menu is no longer needed.
+
+Movable :
+
+    moveUp Method:
+        Signature: void moveUp(float speed);
+        Description: Defines a method for moving an object in the upward direction. The speed parameter determines the rate of upward movement.
+
+    moveDown Method:
+        Signature: void moveDown(float speed);
+        Description: Defines a method for moving an object in the downward direction. The speed parameter determines the rate of downward movement.
+
+    moveLeft Method:
+        Signature: void moveLeft(float speed);
+        Description: Defines a method for moving an object to the left. The speed parameter determines the rate of leftward movement.
+
+    moveRight Method:
+        Signature: void moveRight(float speed);
+        Description: Defines a method for moving an object to the right. The speed parameter determines the rate of rightward movement.
+
+MyGdxGame :
+
+    handleInput Method:
+        Signature: private void handleInput();
+        Description: Handles player input, allowing the player character to move in response to arrow key presses and attack when the space key is pressed.
+
+    monsterInput Method:
+        Signature: public void monsterInput(Monster monster);
+        Description: Handles monster movement based on a simple algorithm. Monsters move toward the player character if there are no collisions with the map.
+
+    isCollisionWithMap Method:
+        Signature: private boolean isCollisionWithMap(float x, float y, float width, float height);
+        Description: Checks for collisions between the player character and the map, preventing the player from moving through objects marked in the "Collision" layer.
+
+    clearCharacters Method:
+        Signature: private void clearCharacters();
+        Description: Clears the player character and monsters, preparing for a game restart.
+
+    restartGame Method:
+        Signature: private void restartGame();
+        Description: Restarts the game by clearing characters and creating new ones.
+
+    create Method:
+        Signature: public void create();
+        Description: Initializes various components, including the menu, fonts, camera, and lists for characters and items.
+
+    createCharacters Method:
+        Signature: private void createCharacters();
+        Description: Creates player character, monsters, and items such as keys, shields, and potions. This method is called at the start of the game.
+
+    render Method:
+        Signature: public void render();
+        Description: Renders the game or menu based on the game state. Calls renderGame or renderMenu accordingly.
+
+    renderGame Method:
+        Signature: private void renderGame();
+        Description: Renders the game world, including the player character, monsters, items, and handles input. Also manages game over conditions and victory.
+
+    renderMenu Method:
+
+    Signature: private void renderMenu();
+    Description: Renders the game menu and checks for button clicks.
+
+    dispose Method:
+        Signature: public void dispose();
+        Description: Disposes of resources, including the map, renderer, batch, and other components.
+
+    isClicked Method:
+        Signature: private boolean isClicked(float mouseX, float mouseY, float buttonX, float buttonY, BitmapFont font, String text);
+        Description: Checks if a button in the game is clicked based on mouse coordinates, button position, and font layout.
+
